@@ -91,6 +91,9 @@ function queryAllLocationsByFilmName(filmname) {
 function deleteLocationById(idInMongo) {
     Location.findOneAndDelete({_id:idInMongo}).then(console.log('Deleted !\n'))
 }
+function updateLocation(id,set){
+    Location.updateOne({_id: id}, {$set:set}).then(console.log('done'))
+}
 function addLocation(location) {
     try{
         location.save();
